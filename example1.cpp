@@ -30,7 +30,7 @@ int main()
 
     //load it into a new array
     cnpy::NpyArray arr = cnpy::npy_load("arr1.npy");
-    std::complex<double>* loaded_data = arr.data<std::complex<double>>();
+    [[maybe_unused]] std::complex<double>* loaded_data = arr.data<std::complex<double>>();
 
     //make sure the loaded data matches the saved data
     assert(arr.word_size == sizeof(std::complex<double>));
@@ -58,7 +58,7 @@ int main()
 
     //check that the loaded myVar1 matches myVar1
     cnpy::NpyArray arr_mv1 = my_npz["myVar1"];
-    double* mv1 = arr_mv1.data<double>();
+    [[maybe_unused]] double* mv1 = arr_mv1.data<double>();
     assert(arr_mv1.shape.size() == 1 && arr_mv1.shape[0] == 1);
     assert(mv1[0] == myVar1);
 }
