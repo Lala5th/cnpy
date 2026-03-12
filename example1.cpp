@@ -48,7 +48,7 @@ int main()
     cnpy::npz_save("out.npz","myVar1",&myVar1,{1},"w"); //"w" overwrites any existing file
     cnpy::npz_save("out.npz","myVar2",&myVar2,{1},"a"); //"a" appends to the file we created above
     cnpy::npz_save("out.npz","arr1",&data[0],{Nz,Ny,Nx},"a"); //"a" appends to the file we created above
-    cnpy::npz_save<char,int>("out.npz","tuplearr",tuple_array,"a"); //"a" appends to the file we created above
+    cnpy::npz_save<char,int,char>("out.npz","tuplearr",tuple_array,"a"); //"a" appends to the file we created above
 
     //load a single var from the npz file
     cnpy::NpyArray arr2 = cnpy::npz_load("out.npz","arr1");
